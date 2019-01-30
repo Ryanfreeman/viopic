@@ -1,0 +1,20 @@
+<div *ngIf="users">
+  <ion-card *ngFor="let user of users">
+    <ion-item>
+      <ion-avatar (click)="goToProfile(user.uid)" item-start>
+        <img [src]="user.photoURL || 'assets/imgs/buddy.png'">
+      </ion-avatar>
+      <h2>{{user.name}}</h2>
+      <p>{{user.username}}</p>
+      <button (click)="follow(user.uid)" *ngIf="!followingStatus(user.uid) && !chat" round ion-button  item-end>
+        Follow
+      </button>
+      <button (click)="unfollow(user.uid)" *ngIf="followingStatus(user.uid) && !chat" round ion-button item-end>
+        Following
+      </button>
+      <button (click)="startChat(user)" *ngIf="chat" ion-button icon-only clear color="dark" item-end>
+        <ion-icon name="chatbubbles"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-card>
+</div>

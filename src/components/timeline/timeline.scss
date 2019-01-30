@@ -1,0 +1,71 @@
+timeline {
+  .actions button{
+    padding: 8px !important;
+  }
+  .fa {
+    font-size: 18px;
+    margin-right: 5px;
+    color: color($colors, light);
+    text-shadow: -1px 0 color($colors, primary), 0 1px color($colors, primary), 1px 0 color($colors, primary), 0 -1px color($colors, primary);
+  }
+
+  .fa.liked{
+    margin-right: 5px;
+    color: color($colors, danger);
+    text-shadow: -1px 0 color($colors, danger), 0 1px color($colors, danger), 1px 0 color($colors, danger), 0 -1px color($colors, danger);;
+  }
+
+  .fa.comment {
+    margin-right: 5px;
+    color: color($colors, primary);
+    text-shadow: -1px 0 color($colors, primary), 0 1px color($colors, primary), 1px 0 color($colors, primary), 0 -1px color($colors, primary);
+
+  }
+
+  .fa.bookmarked {
+    margin-right: 5px;
+    color: color($colors, warning);
+    text-shadow: -1px 0 color($colors, warning), 0 1px color($colors, warning), 1px 0 color($colors, warning), 0 -1px color($colors, warning);
+
+  }
+  
+  ion-card p {
+    white-space: normal; 
+  }
+
+  .label {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  ion-card-content{
+    margin-left: 38px;
+  }
+
+  .video-paused span {
+    margin-top: -45px;   
+    
+   
+  }
+  .video-paused .post-img {
+    border: 1px solid #d6d6d6;
+  }
+
+  .play-icon {
+    position: absolute;
+    top:35%;
+    left: 48%;
+    box-shadow: 2px 1px 1px #d6d6d6;
+    text-align: center;
+    padding:8px;    
+    width: 48px;
+    height: 48px;
+    font-size: 32px;
+    border-radius: 50%;
+    background-color: white;
+  }
+ 
+}
+
+.preline {
+  white-space: pre-line;
+}

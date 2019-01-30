@@ -1,0 +1,144 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.fa {
+  font-size: 21px !important;
+}
+
+.item {
+  padding-left: 0px;
+}
+
+.card {
+  margin: 0;
+  padding: 5px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+
+}
+.post-img {
+  max-height: 512px;
+  border-radius: 15px;
+}
+
+.divider {
+  width: 80%;
+  color: gray;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  line-height: 0.05em;
+  margin: 0 auto;
+}
+
+.divider span { 
+  background:#fff; 
+  padding:0 10px; 
+}
+
+
+.fa-icons-general {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+}
+
+.ion-ios-fa-home::before,
+.ion-ios-fa-home-outline::before,
+.ion-md-fa-home::before {
+  @extend .fa-icons-general;
+  content: "\f015";
+}
+
+.ion-ios-fa-info-circle::before,
+.ion-ios-fa-info-circle-outline::before,
+.ion-md-fa-info-circle::before {
+  @extend .fa-icons-general;
+  content: "\f05a";
+}
+
+.ion-ios-fa-search-plus::before,
+.ion-ios-fa-search-plus-outline::before,
+.ion-md-fa-search-plus::before {
+  @extend .fa-icons-general;
+  content: "\f00e";
+}
+
+.comment {
+  color: color($colors, primary);
+}
+
+.avatar-navbar {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  margin-left: 5px;
+  top: 5px;
+  left: 0;
+  border: 1px solid color($colors, primary);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.avatar-button .bar-button{
+  width: 48px !important;
+  color: transparent;
+}
+.card {
+  box-shadow:0 0 0 #d6d6d6 !important;
+  border-bottom: 1px solid #d6d6d6;
+}
+ion-avatar {
+  margin-top: 28px !important;
+}
+ion-avatar img {
+  border: 1px solid color($colors, primary);
+  background: #fff;
+}
+
+#tab-t0-0 .badge {
+  right: none;
+}
+
+#tab-t0-0 .tab-badge {
+  height: 12px;
+  width: 8px !important;
+  min-width: 8px !important;
+  border-radius: 50%;
+  left: calc(50% - 6px);
+  right: none;
+  zoom: 0.5;
+}
+button{
+  background: transparent;
+  color: map-get($colors, myFont);
+}
+#tab-t0-2 .badge {
+  right: none;
+}
+
+#tab-t0-2 .tab-badge {
+  height: 12px;
+  width: 8px !important;
+  min-width: 8px !important;
+  border-radius: 50%;
+  left: calc(50% - 6px);
+  right: none;
+  zoom: 0.5;
+}
+

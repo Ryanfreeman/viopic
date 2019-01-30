@@ -1,0 +1,74 @@
+<div *ngIf="timeline && account">
+  <ion-card *ngFor="let post of timeline">
+    <ion-item>
+      <ion-avatar (click)="goToProfile(post.postBy)" item-start>
+        <img [src]="post.userPhoto? post.userPhoto : 'assets/imgs/buddy.png'">
+      </ion-avatar>
+      <p (click)="viewPost(post.uid)">
+        <b>{{post.user}}</b> {{post.username}}
+        <span *ngIf="post.postOwner">Shared
+          <b>{{post.postOwner}}</b> post
+        </span>
+        {{post.address}} &bull; {{getDate(post.createdAt)}}
+      </p>
+
+      <button *ngIf="account.uid === post.postBy" (click)="deletePost(post.uid)" ion-button icon-only clear color="danger" item-end>
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-card-content>
+      <span *ngFor="let text of createStrArray(post.text)" >
+        <br *ngIf="text === 'VK_RETURN'" />  
+        {{text.substring(0,1)==="#" || text.substring(0,1)==="@" || isURL(text) || text === 'VK_RETURN'? "": " " +text}}
+        <a (click)="searchByTag(text)" *ngIf="text.substring(0,1)==='#'" id="hashtagevt" class="hashtagevt">{{' ' +text}}</a>
+        <a (click)="openProfileByQuote(text)" *ngIf="text.substring(0,1)==='@'" id="hashtagevt" class="hashtagevt">{{' ' +text}}</a>
+        <a (click)="openBrowser(text)" *ngIf="isURL(text)">{{' ' +text}}</a>
+      </span>
+
+      <div *ngIf="post.photoURL">
+        <img class="post-img" [src]="post.photoURL" />
+      </div>
+      <div class="video-paused " *ngIf="post.videoURL">
+        <div >
+          <video #video width="100%" class="post-img" [src]="post.videoURL" poster="assets/imgs/poster.png" poster="" controls (play)="play(post.uid)" (pause)="addView(post.uid)" (ended)="addView(post.uid)"></video>
+          <p *ngIf="post['views'] && post.views > 0">{{post.views > 1? post.views+ ' views': post.views+ ' view'}}</p>
+        </div>
+      </div>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col class="actions">
+        <button *ngIf="!likeState(post.likes)" (click)="like(post.uid)" ion-button clear small icon-left color="dark">
+          <i class='fa fa-heart'></i>
+          {{countEv(post.likes)}}
+        </button>
+        <button *ngIf="likeState(post.likes)" (click)="dislike(post.uid)" ion-button clear small icon-left color="dark">
+          <i class='fa liked fa-heart'></i>
+          {{countEv(post.likes)}}
+        </button>
+        <button (click)="comment(post.uid)" ion-button clear small icon-start color="dark">
+          <i class='fa fa-comment' [ngClass]="{'comment': commentState(post.comments)}"></i>
+          {{countEv(post.comments)}}
+        </button>
+
+        <button *ngIf="!bookmarkState(post.bookmark)" (click)="addToBookmark(post.uid)" ion-button clear small icon-left color="dark">
+          <i class='fa fa-bookmark'></i>
+          {{countEv(post.bookmark)}}
+        </button>
+        <button *ngIf="bookmarkState(post.bookmark)" (click)="removeFromBookmark(post.uid)" ion-button clear small icon-left color="dark">
+          <i class='fa bookmarked fa-bookmark'></i>
+          {{countEv(post.bookmark)}}
+        </button>
+        <button *ngIf="account.uid !== post.postBy" (click)="sharePost(post)" ion-button clear icon-start color="primary">
+          <ion-icon name='repeat'></ion-icon>
+          {{countEv(post.sharing)}}
+        </button>
+      </ion-col>
+      <!-- <ion-col text-right>
+          <button *ngIf="account.uid !== post.postBy" (click)="sharePost(post)" ion-button clear small icon-start color="dark">
+            <ion-icon name='share-alt'></ion-icon>
+            Share
+          </button>
+        </ion-col> -->
+    </ion-row>
+  </ion-card>
+</div>
