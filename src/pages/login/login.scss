@@ -20,166 +20,93 @@ page-login {
 	.logo img {
 		height: 128px;
 	}
-
-	
+	.login-logo {
+		margin-top: 15%;
+		text-align: center;
+		font-size: 28px;
+		font-weight: 300; }
+		.button {
+			border-color: #b2b2b2;
+			background-color: #ccc;
+			color: #444;
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			padding: 0 12px;
+			min-width: 52px;
+			min-height: 47px;
+			border-width: 0px;
+			border-style: solid;
+			border-radius: 0px;
+			vertical-align: top;
+			text-align: center;
+			text-overflow: ellipsis;
+			font-size: 16px;
+			line-height: 43px;
+			cursor: pointer; }
+			.button:hover {
+			  color: #444;
+			  text-decoration: none; }
+			.button.active,
+			.button.activated {
+			  border-color: #a2a2a2;
+			  background-color: #e5e5e5;
+			  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1); }
+			.button:after {
+			  position: absolute;
+			  top: -6px;
+			  right: -6px;
+			  bottom: -6px;
+			  left: -6px;
+			  content: ' '; }	
+	.login_back {
+		background: url("../img/login-bg.jpg") no-repeat center center;
+		background-size: 100% 100%; }
+	    .login-tab .login .item-input {
+			background: transparent; }
+		  .login-tab .login .list {
+			margin: 0 15px; }
+			.login-tab .login .list .item {
+			  border-bottom: 1px solid #ffffff;
+			  border-top: 0px;
+			  border-right: 0;
+			  border-left: 0; }
+			  .login-tab .login .list .item i {
+				display: inline-block;
+				font-size: 16px;
+				color: white; }
+			  .login-tab .login .list .item input {
+				display: inline-block;
+				padding-left: 15px; }
+			  .login-tab .login .list .item input::-webkit-input-placeholder {
+				color: #ffffff; }
+			  .login-tab .login .list .item span {
+				padding-left: 32px;
+				padding-bottom: 2px;
+				color: white; }
+		  .login-tab .login .login-btn {
+			margin: 0px 20px;
+			padding-top: 45px; }
+			.login-tab .login .login-btn .sign span {
+			  color: #f5f5f5;
+			  font-weight: 300;
+			  font-size: 14px; }
+			  .login-tab .login .login-btn .sign span a {
+				color: #ffffff;
+				margin: 10px; }
+	  
+	  .or {
+		color: #fff; }
+	  
+	  .margtp {
+		margin-top: 15px !important; }
+	  
+	  .login-bg {
+		background: url("../img/login-bg.jpg") no-repeat center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover; }
 
 }
-@media not all and (min-height: 600px) and (min-width: 768px) {
-	ion-modal ion-backdrop {
-	  visibility: visible;
-	}
-  }
-  
-  .modal-wrapper {
-	@media only screen and (max-height: 800px) and (max-width: 765px) and (orientation: portrait) {
-	  position: absolute;
-	  width: 90%;
-	  height: 65%;
-	  top: 17.5%;
-	  left: 5%;
-	}
-	@media only screen and (max-height: 800px) and (max-width: 765px) and (orientation: landscape) {
-	  position: absolute;
-	  width: 90%;
-	  height: 85%;
-	  top: 7.5%;
-	  left: 5%;
-	}
-  }
-  
-  .login-header {
-	.toolbar-background {
-	  background: transparent;
-	  border-style: none;
-	}
-	.toolbar-content .toolbar-title {
-	  color: map-get($colors, myFont);
-	  font-family: cursive;
-	  font-variant: small-caps;
-	}
-	.toolbar {
-	  border-top-left-radius: 40px;
-	}
-	.close-button {
-	  top: 0;
-	  right: 0;
-	  position: absolute;
-	  width: 3rem;
-	  height: 3rem;
-	  ion-icon {
-		font-size: 1.4rem;
-	  }
-	}
-  }
-  
-  .login-component {
-	background: rgba(4, 4, 4, 0.19);
-	color: map-get($colors, myFont);
-	border-radius: 40px;
-	overflow-y: scroll;
-  }
-  
-  //To make the content adjustable to height on keyboard
-  .login-content {
-  
-	width: 100%;
-	.list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
-	  box-shadow: inset 0 -1px 0 0 rgba(197, 197, 197, 0);
-	}
-	.list-ios > .item-block:first-child {
-	  border-top-style: none
-	}
-	.list-ios > .item-block:last-child {
-	  border-bottom-style: none
-	}
-	.list-ios {
-	  margin-bottom: 0;
-	}
-  
-	.login-padding {
-	  padding: 20px;
-	}
-	.login-data {
-	  .item {
-		padding-left: 0;
-		background: transparent;
-		.text-input {
-		  text-align: center;
-		  color: map-get($colors, myFont);
-		}
-		.item-input.input-has-focus::after {
-		  border-bottom-color: transparent;
-		}
-		.text-input-wp {
-		  border-style: none none solid none;
-		  border-color: #c4c4c4;
-		  margin:0;
-		  width: 100%;
-		}
-		.input-ios .text-input{
-		  padding-right: 0;
-		}
-	  }
-	  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
-		border-bottom-color: #c4c4c4;
-		box-shadow: inset 0 -1px 0 0 #c4c4c4;
-	  }
-	  .item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input, .item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
-		border-bottom-color: #c4c4c4;
-	  }
-	  .item-wp.item-block .item-inner{
-		padding-right: 0 !important;
-	  }
-	}
-  
-	.breaking {
-	  line-height: 50px;
-	}
-  
-	//To customize the error displayed
-	.error-box {
-	  padding: 0.3em 0 0 3rem;
-	  color: #bdbdbd;
-	  font-size: small;
-	  @media screen and (min-height: 1000px) {
-		font-size: large;
-	  }
-	}
-  
-	.forgotPwd {
-	  font-variant: small-caps;
-	  color: #bbbbbb;
-	  padding: 0 7.5rem;
-	  margin-bottom: 2rem;
-	}
-  
-	.login-button {
-	  width: 75%;
-	  left: 12.5%;
-	}
-  
-	.other-buttons {
-	  ion-col {
-		color: map-get($colors, myFont);
-		button {
-		  background: transparent;
-		}
-	  }
-	}
-  
-  }
-  
-  /****************************************************************************************************************************************
-	Toast Message
-	****************************************************************************************************************************************/
-  .toast-message {
-	background-color: map-get($colors, light);
-	color: map-get($colors, primary);
-	text-align: center;
-  }
-  
-  .toast-md .toast-message, .toast-ios .toast-message {
-	color: map-get($colors, primary);
-  }
-  
-  
+
