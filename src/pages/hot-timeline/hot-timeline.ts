@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-import moment from 'moment';
 import { TimelineProvider } from '../../providers/timeline/timeline';
 import { AccountProvider } from '../../providers/account/account';
 
@@ -46,11 +45,7 @@ export class HotTimelinePage {
     console.log(this.timeline);
   } 
 
-  addPost () {
-    this.modalCtrl.create('AddPostPage').present();    
-  }
  
-
   //Current User Profile
   openProfile(){
     this.modalCtrl.create('ProfilePage', {userId: this.account.uid}).present();
