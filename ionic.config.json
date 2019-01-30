@@ -1,0 +1,8 @@
+{
+  "name": "social-base",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "e12c9a90"
+}
