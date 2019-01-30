@@ -1,4 +1,4 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable} from '@angular/core';
 import firebase from 'firebase';
 import { Camera } from '@ionic-native/camera';
 import { Base64 } from '@ionic-native/base64';
@@ -10,7 +10,6 @@ export class ImageProvider {
 
   constructor(
     private camera: Camera,
-    private ngZone: NgZone,
     private base64: Base64,
     private filePath: FilePath
   ) {
