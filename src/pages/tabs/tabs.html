@@ -3,4 +3,5 @@
   <ion-tab [root]="tab2Root"  tabIcon="search"></ion-tab>
   <ion-tab [root]="tab3Root" tabIcon="add-circle"></ion-tab>
   <ion-tab [root]="tab4Root" tabIcon="flash"></ion-tab>
+   <ion-tab [root]="tab5Root" tabIcon="mail" tabBadge="{{unreadMessages.length > 0? unreadMessages.length: null}}" tabBadgeStyle="danger"></ion-tab>
 </ion-tabs>
