@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Messages</ion-title>
+    <ion-buttons end>
+      <button (click)="searchUser()" ion-button icon-only clear>
+        <i class="fa fa-plus-circle"></i>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let chat of chats">
+    <ion-item (click)="goToChat(chat.uid)">
+      <ion-avatar [ngClass]="{'unread': unread(chat)}" item-start>
+        <img *ngIf="chat.createdBy == account.uid" [src]="chat.recipientPhoto? chat.recipientPhoto : 'assets/imgs/buddy.png'"/>
+        <img *ngIf="chat.createdBy !== account.uid" [src]="chat.senderPhoto? chat.senderPhoto : 'assets/imgs/buddy.png'"/>
+      </ion-avatar>      
+      <h2>{{chat.createdBy == account.uid? chat.recipient: chat.sender}}</h2>   
+      <b *ngIf="unread(chat)" item-end>Unread</b>       
+    </ion-item>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,54 @@
+page-messages-detail {
+  .chat-item {
+    background-color: transparent !important;
+  }
+
+  .bubble {
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 12px;
+    display: inline-block;
+    position: relative;
+	  width: 80%;
+	  height: auto;
+    background-color: color($colors, light);
+    border-radius: 2px; 
+    white-space: normal; 
+       
+  }  
+
+ 
+
+  .right {
+    float: right;       
+  }
+  
+  .you:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: color($colors, light) transparent transparent transparent;
+  
+  }
+
+  .me:after {    
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: -20px;
+    left: auto;
+    top: 0px;
+    bottom: auto;
+    border: 22px solid;
+    border-color: color($colors, light) transparent transparent transparent;
+  
+  }
+
+}

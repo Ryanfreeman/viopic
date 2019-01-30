@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-only menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <ion-title *ngIf="chat">
+      {{chat.createdBy == account.uid?chat.recipient: chat.sender}}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngIf="chat && account" no-lines>
+    <ion-item *ngFor="let message of chat.messages" class="chat-item">
+      <ion-avatar *ngIf="message.userId !== account.uid" item-left>
+        <img *ngIf="chat.createdBy == account.uid" [src]="chat.recipientPhoto? chat.recipientPhoto : 'assets/imgs/buddy.png'"/>
+        <img *ngIf="chat.createdBy !== account.uid" [src]="chat.senderPhoto? chat.senderPhoto : 'assets/imgs/buddy.png'"/>
+      </ion-avatar>
+      <div *ngIf="message.userId !== account.uid" class="bubble you">
+        <p>{{message.text}}</p>
+      </div>
+
+      <ion-avatar *ngIf="message.userId == account.uid" item-right>
+        <img [src]="account.photoURL? account.photoURL : 'assets/imgs/buddy.png'"/>
+      </ion-avatar>
+      <div *ngIf="message.userId == account.uid" class="bubble right me">
+        <p>{{message.text}}</p>
+      </div>
+
+
+    </ion-item>
+  </ion-list>
+ 
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input #input placeholder="Message" [(ngModel)]="text"></ion-input>
+      <button ion-button icon-only clear item-right (click)="sendMessage(); input.setFocus();">
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

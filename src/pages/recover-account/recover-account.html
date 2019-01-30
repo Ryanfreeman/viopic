@@ -1,0 +1,24 @@
+<!--
+  Generated template for the RecoverAccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>    
+    <ion-title>Account Recovery</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating >Enter your Email</ion-label>
+      <ion-input [(ngModel)]="email" type="text"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button (click)="sendEmail()" ion-button block>Send Recovery Email</button>
+
+</ion-content>

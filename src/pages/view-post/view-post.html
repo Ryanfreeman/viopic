@@ -1,0 +1,28 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-only menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <ion-title >
+      Post
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <timeline class="post" [timeline]="post"></timeline>
+  <ion-list *ngIf="comments" padding>
+    <ion-item *ngFor="let comment of comments">
+
+      <ion-avatar item-left>
+        <img src="{{comment.photoURL}}">
+      </ion-avatar>
+      <h2>{{comment.user}}</h2>
+      <p>{{comment.text}} </p>
+      <ion-note item-right>{{getDate(comment.createdAt)}}</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

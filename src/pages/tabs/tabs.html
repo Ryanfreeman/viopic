@@ -1,0 +1,6 @@
+<ion-tabs #mainTabs (tap)="scrollTop($event)">
+  <ion-tab class="home" [root]="tab1Root" tabBadge="{{unreadPosts.length > 0?'&nbsp;': null}}" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2Root"  tabIcon="search"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="add-circle"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="flash"></ion-tab>
+</ion-tabs>

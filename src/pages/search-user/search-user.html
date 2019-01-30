@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-left menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+      Back
+    </button>
+
+    <ion-title text-center>
+      Search User
+    </ion-title>
+    
+  </ion-toolbar>
+  <ion-searchbar (ionInput)="search($event)"></ion-searchbar>
+</ion-header>
+<ion-content >
+  <user-list [users]="users" [chat]="true"></user-list>
+</ion-content>

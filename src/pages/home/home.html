@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <div *ngIf="!ios"  class="avatar-navbar" left>
+      
+      <img *ngIf="account" [src]="account.photoURL? account.photoURL : 'assets/imgs/buddy.png'"/>
+    </div>
+    <ion-buttons *ngIf="!ios" class="avatar-button" left>
+      <button (click)="openProfile()" ion-button icon-only>
+        <ion-icon name=""></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons *ngIf="ios" left>
+      <button (click)="openProfile()" ion-button >
+        Profile        
+      </button>
+    </ion-buttons>
+
+
+    <ion-title text-center>Viopic</ion-title>
+
+    <ion-buttons end>
+      <!-- <button (click)="addPost()" ion-button icon-only>
+        <i class="fa fa-edit"></i>
+      </button> -->
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+  <timeline [timeline]="timeline"></timeline>
+  <!-- <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll> -->
+
+
+</ion-content>

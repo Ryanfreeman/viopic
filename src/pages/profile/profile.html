@@ -1,0 +1,86 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-only menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+
+    <ion-title text-center>
+
+    </ion-title>
+
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngIf="account && currentUser">
+    <div class="cover" [style.background]="account.coverPhotoURL?'url('+account.coverPhotoURL+')' :'url(assets/imgs/cover.png)'"
+      [style.backgroundSize]="'cover'" [style.backgroundRepeat]="'no-repeat'">
+      <ion-item no-lines>
+        <button *ngIf="currentUser.uid === account.uid" (click)="openProfile()" ion-button round item-end>Edit Profile</button>
+        <button (click)="follow()" *ngIf="(currentUser.uid  !== account.uid) && !followingStatus()" ion-button round item-end>Follow</button>
+        <button (click)="unfollow()" *ngIf="(currentUser.uid !== account.uid) && followingStatus()" ion-button round item-end>Following</button>
+      </ion-item>
+    </div>
+    <figure class="avatar">
+      <img [src]="account.photoURL? account.photoURL : 'assets/imgs/buddy.png'">
+    </figure>
+    <div class="info">
+      <h2>{{account.name}}</h2>
+      <p>{{account.username}}</p>
+      <!-- <p>{{account.description}}</p> -->
+      <span *ngFor="let text of createStrArray(account.description)">
+        {{text.substring(0,1)==="#" || text.substring(0,1)==="@" || isURL(text)? "": " " +text}}        
+        <a (click)="openBrowser(text)" *ngIf="isURL(text)">{{' ' +text}}</a>
+      </span>
+      <p *ngIf="account.birthday">Birthday: {{account.birthday}}</p>
+    </div>
+    <ion-row>
+      <ion-col (click)="openFollowList('Following')">
+        <b>{{following()}}</b>
+        Following
+      </ion-col>
+      <ion-col (click)="openFollowList('Followers')">
+        <b>{{followers()}}</b>
+        Followers
+      </ion-col>
+
+      <ion-col>
+        <b>{{userTimeline? userTimeline.length: 0}}</b>
+        Posts
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+
+  <ion-segment [(ngModel)]="view">
+    <ion-segment-button value="posts">
+      Posts
+    </ion-segment-button>
+    <ion-segment-button value="likes">
+      Likes
+    </ion-segment-button>
+    <ion-segment-button value="favorites">
+      Favorites
+    </ion-segment-button>
+
+  </ion-segment>
+  <div [ngSwitch]="view">
+    <div *ngSwitchCase="'posts'">
+      <timeline [timeline]="userTimeline"></timeline>
+    </div>
+    <div *ngSwitchCase="'likes'">
+      <timeline [timeline]="likedTimeline"></timeline>
+    </div>
+    <div *ngSwitchCase="'favorites'">
+      <timeline [timeline]="bookmarkedTimeline"></timeline>
+    </div>
+  </div>
+
+
+
+
+</ion-content>

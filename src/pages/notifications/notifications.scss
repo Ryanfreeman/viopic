@@ -1,0 +1,43 @@
+page-notifications {
+    white-space: normal !important;
+    .notification {
+        width: 100%;
+        word-break: normal !important;
+        word-wrap: normal;
+        
+    }
+
+    ion-avatar {
+        margin: 0 !important;
+    }
+
+    ion-avatar img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    ion-item p, b {
+        line-height: 0px;
+    }
+
+    ion-item {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .details{
+        margin-left: 48px !important;
+        width: 93%;
+        
+    }
+
+    ion-note  {
+        white-space: normal !important;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;  
+        
+    }
+
+}

@@ -1,0 +1,185 @@
+page-login {
+	.form {
+		position: absolute;
+		margin-top: 30% !important;
+	}
+  .error {
+		color: color($colors, danger);
+	}
+
+	.forgot {
+		color: color($colors, primary);
+		text-align: center;
+	}
+
+	.logo {		
+		text-align: center;
+		margin: 0 auto;
+	}
+
+	.logo img {
+		height: 128px;
+	}
+
+	
+
+}
+@media not all and (min-height: 600px) and (min-width: 768px) {
+	ion-modal ion-backdrop {
+	  visibility: visible;
+	}
+  }
+  
+  .modal-wrapper {
+	@media only screen and (max-height: 800px) and (max-width: 765px) and (orientation: portrait) {
+	  position: absolute;
+	  width: 90%;
+	  height: 65%;
+	  top: 17.5%;
+	  left: 5%;
+	}
+	@media only screen and (max-height: 800px) and (max-width: 765px) and (orientation: landscape) {
+	  position: absolute;
+	  width: 90%;
+	  height: 85%;
+	  top: 7.5%;
+	  left: 5%;
+	}
+  }
+  
+  .login-header {
+	.toolbar-background {
+	  background: transparent;
+	  border-style: none;
+	}
+	.toolbar-content .toolbar-title {
+	  color: map-get($colors, myFont);
+	  font-family: cursive;
+	  font-variant: small-caps;
+	}
+	.toolbar {
+	  border-top-left-radius: 40px;
+	}
+	.close-button {
+	  top: 0;
+	  right: 0;
+	  position: absolute;
+	  width: 3rem;
+	  height: 3rem;
+	  ion-icon {
+		font-size: 1.4rem;
+	  }
+	}
+  }
+  
+  .login-component {
+	background: rgba(4, 4, 4, 0.19);
+	color: map-get($colors, myFont);
+	border-radius: 40px;
+	overflow-y: scroll;
+  }
+  
+  //To make the content adjustable to height on keyboard
+  .login-content {
+  
+	width: 100%;
+	.list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+	  box-shadow: inset 0 -1px 0 0 rgba(197, 197, 197, 0);
+	}
+	.list-ios > .item-block:first-child {
+	  border-top-style: none
+	}
+	.list-ios > .item-block:last-child {
+	  border-bottom-style: none
+	}
+	.list-ios {
+	  margin-bottom: 0;
+	}
+  
+	.login-padding {
+	  padding: 20px;
+	}
+	.login-data {
+	  .item {
+		padding-left: 0;
+		background: transparent;
+		.text-input {
+		  text-align: center;
+		  color: map-get($colors, myFont);
+		}
+		.item-input.input-has-focus::after {
+		  border-bottom-color: transparent;
+		}
+		.text-input-wp {
+		  border-style: none none solid none;
+		  border-color: #c4c4c4;
+		  margin:0;
+		  width: 100%;
+		}
+		.input-ios .text-input{
+		  padding-right: 0;
+		}
+	  }
+	  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+		border-bottom-color: #c4c4c4;
+		box-shadow: inset 0 -1px 0 0 #c4c4c4;
+	  }
+	  .item-wp.item-input.ng-invalid.ng-touched:not(.input-has-focus) .text-input, .item-wp.item-input.ng-valid.input-has-value:not(.input-has-focus) .text-input {
+		border-bottom-color: #c4c4c4;
+	  }
+	  .item-wp.item-block .item-inner{
+		padding-right: 0 !important;
+	  }
+	}
+  
+	.breaking {
+	  line-height: 50px;
+	}
+  
+	//To customize the error displayed
+	.error-box {
+	  padding: 0.3em 0 0 3rem;
+	  color: #bdbdbd;
+	  font-size: small;
+	  @media screen and (min-height: 1000px) {
+		font-size: large;
+	  }
+	}
+  
+	.forgotPwd {
+	  font-variant: small-caps;
+	  color: #bbbbbb;
+	  padding: 0 7.5rem;
+	  margin-bottom: 2rem;
+	}
+  
+	.login-button {
+	  width: 75%;
+	  left: 12.5%;
+	}
+  
+	.other-buttons {
+	  ion-col {
+		color: map-get($colors, myFont);
+		button {
+		  background: transparent;
+		}
+	  }
+	}
+  
+  }
+  
+  /****************************************************************************************************************************************
+	Toast Message
+	****************************************************************************************************************************************/
+  .toast-message {
+	background-color: map-get($colors, light);
+	color: map-get($colors, primary);
+	text-align: center;
+  }
+  
+  .toast-md .toast-message, .toast-ios .toast-message {
+	color: map-get($colors, primary);
+  }
+  
+  

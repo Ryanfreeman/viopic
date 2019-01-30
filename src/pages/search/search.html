@@ -1,0 +1,52 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>Find {{view === 'posts'? 'Posts': 'People'}}</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-only clear menuToggle>
+      <ion-icon name="arrow-back"></ion-icon>
+    </button>
+    <ion-searchbar [(ngModel)]="searchStr" (ionInput)="search($event)"></ion-searchbar>
+    
+  </ion-toolbar>
+  <ion-segment [(ngModel)]="view">
+      <ion-segment-button (click)="search({target:{value: searchStr}})" value="top">
+        Top
+      </ion-segment-button>
+      <ion-segment-button (click)="search({target:{value: searchStr}})" value="posts">
+        Latest
+      </ion-segment-button>
+      <ion-segment-button (click)="search({target:{value: searchStr}})" value="people">
+        People
+      </ion-segment-button>
+      <ion-segment-button (click)="search({target:{value: searchStr}})" value="photos">
+        Photos
+      </ion-segment-button>
+    </ion-segment>
+
+  <div [ngSwitch]="view">
+    <div *ngSwitchCase="'top'">
+      <timeline [timeline]="topPosts"></timeline>
+
+    </div>
+    <div *ngSwitchCase="'posts'">
+      <timeline [timeline]="timeline"></timeline>
+
+    </div>
+    <div *ngSwitchCase="'people'">
+      <user-list [users]="users"></user-list>
+    </div>
+
+    <div *ngSwitchCase="'photos'">
+      <timeline [timeline]="imagePosts"></timeline>
+    </div>
+  </div>
+
+
+
+
+</ion-content>

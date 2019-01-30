@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>New Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+
+  <div *ngIf="step === 1">
+    <div class="logo">
+      <img [src]="image | cdvphotolibrary" alt="">
+      <br/>
+      <button (click)="choosePhoto()" ion-button small icon-left color="light">
+        <ion-icon name="camera"></ion-icon>
+        Select Picture
+      </button>
+    </div>
+
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Name</ion-label>
+        <ion-input [(ngModel)]="data.name" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Userame</ion-label>
+        <ion-input [(ngModel)]="data.username" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Birthday</ion-label>
+        <ion-input [(ngModel)]="data.birthday" type="date"></ion-input>
+      </ion-item>
+
+    </ion-list>
+    <button (click)="step = step + 1" ion-button block>Next Step</button>
+  </div>
+
+  <div *ngIf="step === 2">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Your Email</ion-label>
+        <ion-input [(ngModel)]="data.email" type="text"></ion-input>
+
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input [(ngModel)]="data.password" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Password Confirmation</ion-label>
+        <ion-input [(ngModel)]="data.password2" type="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <br/>
+    <p class="divider">
+      <span>OR</span>
+    </p>
+    <br/>
+    <ion-list class="phone">
+      <div class="item row">
+        <div class="col">
+          <label class="item-input item-select">
+            <div class="input-label">
+            </div>
+            <ion-select [(ngModel)]="countryCode">
+              <ion-option *ngFor="let country of countries" [value]="country.dial_code">{{country.code}} {{country.dial_code}}</ion-option>
+            </ion-select>
+          </label>
+        </div>
+        <div class="col">
+          <div class="item-input-inset">
+            <label class="item-input-wrapper">
+              <ion-input [(ngModel)]="data.phone" type="number" placeholder="Phone"></ion-input>
+            </label>
+          </div>
+        </div>
+      </div>
+    </ion-list>
+    <button (click)="step = step -1" ion-button block color="danger">Go Back</button>
+    <button (click)="createAccount()" [disabled]="!isValid()" ion-button block color="secondary">Create Account</button>
+  </div>
+
+</ion-content>

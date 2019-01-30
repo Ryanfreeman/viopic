@@ -1,0 +1,9 @@
+page-comment-post {
+  .bar-buttons .reply {
+    background-color: color($colors, primary);
+    border-radius: 15px 15px 15px 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    color: white;
+  }
+}

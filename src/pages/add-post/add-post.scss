@@ -1,0 +1,23 @@
+page-add-post {
+  .addons button{
+		margin-left: 20px;
+	}
+
+	.media {
+		margin: 0 auto;
+		float:left;
+		margin-right:10px;
+		//text-align: center;
+	}
+
+	.media img {
+		margin: 0 auto;
+		text-align: center;
+		max-height: 180px;
+		max-width: 180px;
+	}
+
+	.active {
+		color: color($colors, danger);
+	}
+}

@@ -1,0 +1,64 @@
+<ion-header>
+
+  <ion-toolbar>
+    <button (click)="close()" ion-button icon-only menuToggle>
+      <ion-icon name="close"></ion-icon>
+    </button>
+
+    <ion-title text-center>
+      New Post
+    </ion-title>
+
+    <ion-buttons end>
+      <button (click)="post()" ion-button icon-right>
+        Post
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-textarea #postText (keyup)="resize()" (keydown.backspace)="quote(0)" (keypress)="quote($event.keyCode)" [disabled]="postOwner" [(ngModel)]="text" placeholder="What's happening?"></ion-textarea>
+    </ion-item>
+    
+  </ion-list>
+  <div *ngIf="users && selectingUser">
+    <ion-card *ngFor="let user of users">
+      <ion-item (click)="quoteUser(user.username)">
+        <ion-avatar item-start>
+          <img [src]="user.photoURL">
+        </ion-avatar>
+        <h2>{{user.name}}</h2>
+        <p>{{user.username}}</p>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div *ngIf="image" class="media">
+    <img [src]="image" alt="img" />
+  </div>
+
+  <div *ngIf="video" class="media">
+    <video [src]="video" alt="video" width="180" height="180" autoplay="false"></video>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-item class="addons">
+    <button *ngIf="!postOwner" (click)="chooseImage()" ion-button icon-only clear color="dark">
+      <ion-icon name="camera"></ion-icon>
+    </button>
+
+    <button *ngIf="!postOwner" (click)="chooseVideo()" ion-button icon-only clear color="dark">
+      <ion-icon name="videocam"></ion-icon>
+    </button>
+
+    <button [ngClass]="{'active': location}" ion-button icon-only clear color="dark" (click)="location = !location">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </ion-item>
+</ion-footer>

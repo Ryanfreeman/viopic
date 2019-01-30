@@ -1,0 +1,24 @@
+page-settings {
+	.cover {
+		text-align: center;
+		margin: 0 auto;
+		height: 35%;
+	}
+
+	.cover img{
+		height:128px;
+		width:128px;
+		border: 1px solid color($colors, primary);
+		border-radius: 50%;
+	}
+
+	.cover .cover-btn {
+		float: right;
+		width: 24px;
+	}
+
+	figure img {
+		background: #fff;
+	}
+
+}
