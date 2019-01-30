@@ -48,37 +48,14 @@ export class HomePage {
   }
 
   getPosts(){
-    this.timelineProvider.getFollowingPosts().subscribe((data) => {
-      console.log(data);
-      this.timeline = [];
-      const following = this.account && "following" in this.account && this.account['following'] || {};
-      const userId = this.account && this.account.uid;
-
-      const userIds = {...following, [userId]: true};
-      data.map(a => {
-        const data = a.payload.doc.data() ;
-        const uid = a.payload.doc.id;          
-       
-        
-        if ((Object.keys(userIds).indexOf(data.postBy) > -1)){
-          console.log(this.timeline.filter(a => a.uid === uid));
-          console.log(this.timeline);
-          this.timeline.push( { uid, ...data });
-        }
-      });
-    
-    });
-   
+    this.timelineProvider.getAllPosts();
   }
+
   //Current User Profile
   openProfile(){
     this.modalCtrl.create('ProfilePage', {userId: this.account.uid}).present();
+  }
 
-  }
-  //Other User Profile
-  goToProfile(userId){
-    this.modalCtrl.create('ProfilePage', {userId: userId}).present();
-  }
   //infinite scroll
   doInfinite(infiniteScroll : InfiniteScroll) {
     console.log('Begin async operation');
